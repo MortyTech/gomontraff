@@ -1,5 +1,4 @@
 
-```markdown
 # High-Performance eBPF TC Network Traffic Exporter
 
 A production-grade, standalone network traffic exporter written in **Go** and **eBPF (C)** using `cilium/ebpf` and CO-RE (Compile Once – Run Everywhere). 
@@ -40,7 +39,6 @@ If you do not wish to use pre-compiled binaries, you can build a completely stat
    cd /opt/gomontraff
    # Copy main.go, counter.bpf.c, and Makefile into this directory
 
-```
 
 2. **Download Module Dependencies:**
 ```bash
