@@ -53,20 +53,18 @@ Before building or running the project, ensure your host environment satisfies t
 - **Operating System:** Linux Kernel version `5.8` or newer (required for eBPF HASH/LPM Trie batch operations and stable `clsact` attachments).
 - **Go Toolchain:** Go `1.21` or later installed.
 - **System Utilities:** `bpftool` must be installed on the system to extract the kernel's BTF data layer during compilation.
-  - *Ubuntu/Debian:* `sudo apt install linux-tools-common linux-tools-$(uname -r)`
-  - *RHEL/CentOS/Rocky:* `sudo dnf install bpftool`
+  - *Ubuntu/Debian:*
+  ```bash
+  sudo apt install linux-tools-common linux-tools-$(uname -r) install linux-headers-$(uname -r) build-essential libelf-dev libbpf-dev `
+  ```
 
 ---
 
 ## Compilation & Build Instructions
 
-If you do not wish to use pre-compiled binaries, you can build a completely statically linked, production-grade executable from source.
-
 1. **Initialize the Project Workspace:**
    ```bash
-   mkdir -p /opt/gomontraff
-   cd /opt/gomontraff
-   # Copy main.go, counter.bpf.c, and Makefile into this directory
+   
 
 
 2. **Download Module Dependencies:**
