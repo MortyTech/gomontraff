@@ -18,7 +18,12 @@ Replicates high-efficiency bulk map collection and eviction (`BatchLookupAndDele
 ### Native Netlink Management:
 Avoids shell-out or Python dependencies for network interface tooling; configurations are bound and unregistered safely via direct netlink sockets.
 
----
+Variable,Description,Default
+MONITOR_INTERFACE,"The target network interface to instrument (e.g., eth0, bond0).",bond0
+MONITOR_SUBNETS,Comma-separated IPv4 CIDR blocks to monitor.,"188.64.139.0/24,192.168.1.0/24"
+REFRESH_INTERVAL,"The window size (in seconds) to collect, report, and flush counters.",30
+EXPORTER_BIND_ADDR,Network bind address for the Prometheus metrics exporter.,0.0.0.0
+EXPORTER_PORT,Listen port for the Prometheus HTTP scrapers.,8000
 
 ## Architecture Flow
 
