@@ -6,7 +6,7 @@ This project replaces a legacy Python + BCC implementation with a single, static
 It instruments network interfaces at the Traffic Control (TC) layer via a `clsact` qdisc, matches IPv4 traffic against a high-performance LPM (Longest Prefix Match) Trie map containing monitored subnets, and natively aggregates packet counts in a kernel-space hash map. A userspace loop reads and clears metrics atomically via eBPF batch map operations, exporting them to a Prometheus `/metrics` endpoint.
 
 ## Features
-Architectural Isolation: 100% written in Go + C. Completely removes execution runtime dependencies on Python, BCC (libbcc), LLVM, Clang, or host kernel headers.
+# Architectural Isolation: 100% written in Go + C. Completely removes execution runtime dependencies on Python, BCC (libbcc), LLVM, Clang, or host kernel headers.
 
 CO-RE (Compile Once – Run Everywhere): Uses vmlinux.h generated from BTF data. The binary compiles down to a single standalone artifact that executes across different kernel versions without on-the-fly recompilation.
 
