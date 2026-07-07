@@ -12,9 +12,9 @@ It instruments network interfaces at the Traffic Control (TC) layer via a `clsac
                +-------------------------------------------------+
                |                   KERNEL SPACE                  |
                |                                                 |
-  [Ingress] ---> [TC clsact filter]                               |
+  [Ingress] ---> [TC clsact filter]                              |
                |         |                                       |
-  [Egress]  ---> [TC clsact filter]                               |
+  [Egress]  ---> [TC clsact filter]                              |
                |         |                                       |
                |         v                                       |
                |   Is IP within       NO                         |
