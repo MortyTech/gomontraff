@@ -71,7 +71,12 @@ Before building or running the project, ensure your host environment satisfies t
 
 1. **Initialize the Project Workspace:**
    ```bash
-   
+git clone https://github.com/MortyTech/gomontraff.git
+cd gomontraff/
+go mod init gomontraff
+go mod tidy
+make
+```
 
 
 2. **Download Module Dependencies:**
