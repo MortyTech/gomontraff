@@ -79,34 +79,6 @@ go mod tidy
 make
 ```
 
-
-2. **Download Module Dependencies:**
-```bash
-go mod init traffic-exporter
-go get [github.com/cilium/ebpf](https://github.com/cilium/ebpf)
-go get [github.com/prometheus/client_golang/prometheus](https://github.com/prometheus/client_golang/prometheus)
-go get [github.com/vishvananda/netlink](https://github.com/vishvananda/netlink)
-
-```
-
-
-3. **Compile via the Provided Makefile:**
-The `Makefile` automates the extraction of the host's kernel structural memory definitions (`vmlinux.h`), calls `go generate` to trigger `bpf2go`, and builds a stripped, statically linked binary:
-```bash
-make
-
-```
-
-
-4. **Clean Build Artifacts (Optional):**
-To erase generated Go bindings, compiled objects, and the binary:
-```bash
-make clean
-
-```
-
-
-
 ---
 
 ## Environment Variables Configuration
