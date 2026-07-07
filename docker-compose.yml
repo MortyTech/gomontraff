@@ -1,0 +1,13 @@
+services:
+  traffic-exporter:
+    image: gomontraff:1.0.1
+    container_name: gomontraff
+    restart: always
+    network_mode: "host"
+    privileged: true
+    environment:
+      - MONITOR_INTERFACE=eno1
+      - MONITOR_SUBNETS="172.16.0.0/16,192.68.1.0/24"
+      - REFRESH_INTERVAL=60
+      - EXPORTER_BIND_ADDR=0.0.0.0
+      - EXPORTER_PORT=1450
