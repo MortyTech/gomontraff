@@ -19,6 +19,7 @@ Listens for termination signals (`SIGINT`, `SIGTERM`) to cleanly remove the atta
 - **Docker Ready:** 
 Ready to build and run inside a Docker container
 ---
+## Architecture Diagram
 ```text
                +-------------------------------------------------+
                |                   KERNEL SPACE                  |
