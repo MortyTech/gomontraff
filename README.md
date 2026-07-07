@@ -1,6 +1,5 @@
 # GoMonTraff — High-Performance eBPF traffic usage exporter wrriten in Go + C
-A production-grade, standalone network traffic exporter written in **Go** and **eBPF (C)** using `cilium/ebpf` and
-CO-RE (Compile Once – Run Everywhere). 
+A production-grade, standalone network traffic exporter written in **Go** and **eBPF (C)** using `cilium/ebpf` and CO-RE (Compile Once – Run Everywhere). 
 
 This tool attaches eBPF classifier programs to both the ingress and egress traffic streams of a specific network interface via Traffic Control (`clsact` qdisc). It efficiently aggregates packet sizes matching a dynamic routing LPM (Longest Prefix Match) Trie map in kernel-space, and exposes these data deltas natively to a Prometheus scraping endpoint using 100% atomic batch map operations.
 
