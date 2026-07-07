@@ -1,4 +1,4 @@
-# GoMonTraff — Go + cilium/ebpf traffic billing exporter
+# GoMonTraff — Go + cilium/ebpf traffic usage exporter
 
 A high-performance, low-overhead network traffic monitoring agent written in **Go** and **eBPF (C with CO-RE)**. This project replaces a legacy Python + BCC implementation with a single, statically linked, production-grade Go binary. 
 
