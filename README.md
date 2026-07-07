@@ -87,15 +87,15 @@ The application is controlled entirely via environment variables. Configure them
 
 | Environment Variable | Default Value | Description |
 | --- | --- | --- |
-| `MONITOR_INTERFACE` | `bond0` | The name of the host network interface to attach eBPF filters to (e.g., `eth0`, `bond0`). |
-| `MONITOR_SUBNETS` | `10.0.0.0/8,172.16.0.0/12` | Comma-separated list of IPv4 subnets to monitor. Traffic outside these subnets is ignored. |
-| `REFRESH_INTERVAL` | `30` | The window interval (in seconds) at which the user-space daemon clears the eBPF map and updates Prometheus. |
+| `MONITOR_INTERFACE` | `eno1` | The name of the host network interface to attach eBPF filters to (e.g., `eth0`, `bond0`). |
+| `MONITOR_SUBNETS` | `72.16.0.0/12,192.168.1.0/24` | Comma-separated list of IPv4 subnets to monitor. Traffic outside these subnets is ignored. |
+| `REFRESH_INTERVAL` | `60` | The window interval (in seconds) at which the user-space daemon clears the eBPF map and updates Prometheus. |
 | `EXPORTER_BIND_ADDR` | `0.0.0.0` | The host network IP address the Prometheus metric server should bind to. |
 | `EXPORTER_PORT` | `8000` | The TCP port the Prometheus metrics engine will listen on. |
 
 ---
 
-## How to Run
+## How to Run Standalone Mode
 
 Because this tool interacts with kernel-level packet classifiers, **it must be run with root or `CAP_BPF` / `CAP_NET_ADMIN` privileges**:
 
@@ -103,9 +103,11 @@ Because this tool interacts with kernel-level packet classifiers, **it must be r
 sudo MONITOR_INTERFACE="eth0" \
      MONITOR_SUBNETS="10.0.0.0/8,172.16.0.0/12" \
      REFRESH_INTERVAL="10" \
-     ./traffic-exporter
-
+     ./gomontraff
 ```
+
+## How to Run Docker Mode
+
 
 ---
 
