@@ -15,7 +15,37 @@ This tool attaches high-performance eBPF classifier programs to both the ingress
 - **Custom Integer Float Formatting:** Forcing Prometheus float exposition to render as true integers for strict compliance with backend billing pipelines.
 
 ---
-
+               +-------------------------------------------------+
+               |                   KERNEL SPACE                  |
+               |                                                 |
+  [Ingress] ---> [TC clsact filter]                              |
+               |         |                                       |
+  [Egress]  ---> [TC clsact filter]                              |
+               |         |                                       |
+               |         v                                       |
+               |   Is IP within       NO                         |
+               |  Monitored Subnet? ------> (Allow Packet/Ignore)|
+               |         |                                       |
+               |         | YES                                   |
+               |         v                                       |
+               |  Atomic Add to BPF Map                          |
+               |  (traffic_map Hash Map)                         |
+               |                                                 |
+               +-----------------|-------------------------------+
+                                 |
+                     Batch Read  | Atomic Lookup
+                     and Delete  | & Clear Loop
+                                 v
+               +-----------------|-------------------------------+
+               |                   USER SPACE                    |
+               |                                                 |
+               |        [traffic-exporter Go Daemon]             |
+               |                     |                           |
+               |                     v                           |
+               |          Exposes Prometheus Metrics             |
+               |             (Default: :8000/metrics)            |
+               +-------------------------------------------------+
+---
 ## Prerequisites
 
 Before building or running the project, ensure your host environment satisfies the following requirements:
