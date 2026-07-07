@@ -1,6 +1,8 @@
 services:
   traffic-exporter:
-    image: gomontraff:1.0.1
+    build:
+      context: .
+      network: host
     container_name: gomontraff
     restart: always
     network_mode: "host"
