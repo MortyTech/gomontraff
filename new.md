@@ -15,6 +15,7 @@ This tool attaches high-performance eBPF classifier programs to both the ingress
 - **Custom Integer Float Formatting:** Forcing Prometheus float exposition to render as true integers for strict compliance with backend billing pipelines.
 
 ---
+```text
                +-------------------------------------------------+
                |                   KERNEL SPACE                  |
                |                                                 |
@@ -45,6 +46,7 @@ This tool attaches high-performance eBPF classifier programs to both the ingress
                |          Exposes Prometheus Metrics             |
                |             (Default: :8000/metrics)            |
                +-------------------------------------------------+
+```
 ---
 ## Prerequisites
 
