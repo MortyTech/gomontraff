@@ -39,7 +39,7 @@ It instruments network interfaces at the Traffic Control (TC) layer via a `clsac
                |          Exposes Prometheus Metrics             |
                |             (Default: :8000/metrics)            |
                +-------------------------------------------------+
-
+```
 
 Features
 
