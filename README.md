@@ -97,6 +97,7 @@ The application is controlled entirely via environment variables. Configure them
 
 ## How to Run Standalone Mode
 
+After succsussful build you can run stanalone binary
 Because this tool interacts with kernel-level packet classifiers, **it must be run with root or `CAP_BPF` / `CAP_NET_ADMIN` privileges**:
 
 ```bash
@@ -120,9 +121,30 @@ traffic_bytes{direction="rx",interface="eth0",ip="172.16.4.92"} 1054
 traffic_bytes{direction="tx",interface="eth0",ip="172.16.4.92"} 0
 traffic_bytes{direction="rx",interface="eth0",ip="10.150.22.101"} 12495003
 traffic_bytes{direction="tx",interface="eth0",ip="10.150.22.101"} 4210955
+```
+## Run by Docker-Compose Mode
 
+```bash
+git clone https://github.com/MortyTech/gomontraff.git
+cd gomontraff/
+docker compose up -d
 ```
 
-```
+## Docker run
 
+```bash
+git clone https://github.com/MortyTech/gomontraff.git
+cd gomontraff/
+docker build -t gomontraff .
+docker run -d \
+  --name gomontraff \
+  --net=host \
+  --privileged \
+  -e MONITOR_INTERFACE="bond0" \
+  -e MONITOR_SUBNETS="172.16.0.0/16,192.168.1.0/24" \
+  -e REFRESH_INTERVAL="30" \
+  -e EXPORTER_BIND_ADDR="0.0.0.0" \
+  -e EXPORTER_PORT="8000" \
+  --restart unless-stopped \
+  gomontraff:latest
 ```
