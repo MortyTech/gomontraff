@@ -88,7 +88,7 @@ The application is controlled entirely via environment variables. Configure them
 | Environment Variable | Default Value | Description |
 | --- | --- | --- |
 | `MONITOR_INTERFACE` | `eno1` | The name of the host network interface to attach eBPF filters to (e.g., `eth0`, `bond0`). |
-| `MONITOR_SUBNETS` | `72.16.0.0/12,192.168.1.0/24` | Comma-separated list of IPv4 subnets to monitor. Traffic outside these subnets is ignored. |
+| `MONITOR_SUBNETS` | `172.16.0.0/16,192.168.1.0/24` | Comma-separated list of IPv4 subnets to monitor. Traffic outside these subnets is ignored. |
 | `REFRESH_INTERVAL` | `60` | The window interval (in seconds) at which the user-space daemon clears the eBPF map and updates Prometheus. |
 | `EXPORTER_BIND_ADDR` | `0.0.0.0` | The host network IP address the Prometheus metric server should bind to. |
 | `EXPORTER_PORT` | `8000` | The TCP port the Prometheus metrics engine will listen on. |
@@ -105,12 +105,6 @@ sudo MONITOR_INTERFACE="eth0" \
      REFRESH_INTERVAL="10" \
      ./gomontraff
 ```
-
-## How to Run Docker Mode
-
-
----
-
 ## Prometheus Exposition Metric Sample Output
 
 Once running, the metrics server will expose the data delta calculated exactly within that current `REFRESH_INTERVAL` window. Stale metrics are wiped cleanly at the start of each window, forcing inactive IPs to drop out instead of presenting frozen counts.
