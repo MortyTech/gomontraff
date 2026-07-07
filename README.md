@@ -39,3 +39,14 @@ It instruments network interfaces at the Traffic Control (TC) layer via a `clsac
                |          Exposes Prometheus Metrics             |
                |             (Default: :8000/metrics)            |
                +-------------------------------------------------+
+
+
+Features
+
+    Architectural Isolation: 100% written in Go + C. Completely removes execution runtime dependencies on Python, BCC (libbcc), LLVM, Clang, or host kernel headers.
+
+    CO-RE (Compile Once – Run Everywhere): Uses vmlinux.h generated from BTF data. The binary compiles down to a single standalone artifact that executes across different kernel versions without on-the-fly recompilation.
+
+    Atomic Batch Map Operations: Replicates high-efficiency bulk map collection and eviction (BatchLookupAndDelete) in a single syscall context window, guaranteeing no packet tracking data is leaked or omitted between refresh intervals.
+
+    Native Netlink Management: Avoids shell-out or Python dependencies for network interface tooling; configurations are bound and unregistered safely via direct netlink sockets.
