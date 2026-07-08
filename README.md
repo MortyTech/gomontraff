@@ -61,7 +61,12 @@ Before building or running the project, ensure your host environment satisfies t
 - **System Utilities:** `bpftool` must be installed on the system to extract the kernel's BTF data layer during compilation.
   - *Ubuntu/Debian:*
   ```bash
-  sudo apt install linux-tools-common linux-tools-$(uname -r) install linux-headers-$(uname -r) build-essential libelf-dev libbpf-dev `
+  sudo apt install linux-tools-common \
+  linux-tools-$(uname -r) \
+  linux-headers-$(uname -r) \
+  build-essential \
+  libelf-dev \
+  libbpf-dev `
   ```
 
 ---
