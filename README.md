@@ -8,7 +8,7 @@ You can use tools like Prometheus, InfluxDB, or even ClickHouse (with a broker l
 ## Features
 
 - **Architectural Excellence:**
-Built entirely using pure Go (`cilium/ebpf`) and standard BTF-annotated C code. No runtime dependencies on BCC, LLVM/Clang, or host kernel headers.
+Built entirely using pure Go (`cilium/ebpf`) and standard BTF-annotated C code. **No runtime dependencies** on BCC, LLVM/Clang, or host kernel headers.
 - **True CO-RE (Compile Once - Run Everywhere):** 
 Uses `vmlinux.h` to read kernel data structures safely across different Linux kernel versions without recompilation.
 - **Atomic Batch Map Operations:** 
