@@ -9,8 +9,8 @@ You can use tools like Prometheus, InfluxDB, or even ClickHouse (with a broker l
 
 - **Architectural Excellence:**
 Built entirely using pure Go (`cilium/ebpf`) and standard BTF-annotated C code. **No runtime dependencies** on BCC, LLVM/Clang, or host kernel headers.
-- **True CO-RE (Compile Once - Run Everywhere):** 
-Uses `vmlinux.h` to read kernel data structures safely across different Linux kernel versions without recompilation.
+- **True CO-RE (Compile Once - Run Everywhere):**
+- Uses `vmlinux.h` to read kernel data structures safely across different Linux kernel versions without recompilation.
 - **Atomic Batch Map Operations:** 
 Employs eBPF kernel batching APIs to look up and clear metrics atomically in a single operation, eliminating the data race and latency overhead of single-item map lookups.
 - **Zero Leak Cleanup:** 
