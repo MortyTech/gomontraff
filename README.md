@@ -66,7 +66,7 @@ Before building or running the project, ensure your host environment satisfies t
   linux-headers-$(uname -r) \
   build-essential \
   libelf-dev \
-  libbpf-dev `
+  libbpf-dev
   ```
 
 ---
