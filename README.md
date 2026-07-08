@@ -77,7 +77,7 @@ go mod init gomontraff
 go mod tidy
 make
 
-/gomontraff --help 
+./gomontraff --help 
 Usage of traffic-exporter:
 
 Options:
