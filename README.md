@@ -76,6 +76,23 @@ cd gomontraff/
 go mod init gomontraff
 go mod tidy
 make
+
+/gomontraff --help 
+Usage of traffic-exporter:
+
+Options:
+  -h, --help      Show this help message and exit
+  -v, --version   Show version information and exit
+
+Environment Variables:
+  MONITOR_INTERFACE   Target network interface to hook (default: "bond0")
+  MONITOR_SUBNETS     Comma-separated IPv4 subnets to track (default: "172.16.0.0/16,192.168.1.0/24")
+  REFRESH_INTERVAL    Window interval in seconds to poll & flush maps (default: 30)
+  EXPORTER_BIND_ADDR  Prometheus HTTP listener binding address (default: "0.0.0.0")
+  EXPORTER_PORT       Prometheus HTTP listener port (default: "8000")
+
+./gomontraff --version
+traffic-exporter version 1.0.1
 ```
 
 ---
